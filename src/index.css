@@ -205,3 +205,45 @@ input {
   font-size: 1.5rem; /* Adjust font size as needed */
   color: #333; /* Color of the numbers */
 }
+
+/* timer Clock */
+.timer-controls {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  margin-top: 10px; /* Space above the button group */
+}
+
+.timer-controls input {
+  width: 60px; /* Fixed width for input fields */
+  padding: 8px;
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px;
+  transition: border-color 0.2s; /* Smooth transition for input focus */
+}
+
+.timer-controls input:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.timer-controls button {
+  background-color: transparent; /* Transparent background */
+  color: #333; /* Dark text color */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px 15px; /* Padding for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-weight: 500; /* Slightly bolder font */
+  transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Smooth transition */
+}
+
+.timer-controls button:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+  color: #007bff; /* Change text color on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.timer-controls button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle focus effect */
+}
