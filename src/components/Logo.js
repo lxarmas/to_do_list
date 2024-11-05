@@ -1,4 +1,4 @@
 export default function Logo() {
 
-  return <h1>To DO LIST </h1>
+  return <h1>TO DO LIST </h1>
  }

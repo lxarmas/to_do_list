@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
 import Logo from "./Logo";
+import Clock from "./Clock";
 import Form from "./Form";
 import TaskList from "./TaskList";
 import Stats from "./Stats";
@@ -36,17 +38,20 @@ export default function App() {
   }
 
   return (
-    <div className="app">
-      <Logo />
-      <div className="date">{date}</div> {/* Updated to use a div for styling */}
-      <Form onAddTask={handleAddTask} />
-      <TaskList
-        tasks={tasks}
-        onDeleteTask={handleDeleteTask}
-        onToggleTask={handleToggleTask}
-        onClearList={handleClearList}
-      />
-      <Stats tasks={tasks} />
-    </div>
+    <BrowserRouter basename={process.env.PUBLIC_URL}> {/* Conditional basename */}
+      <div className="app">
+        <Logo />
+        <div className="date">{date}</div>
+        <Clock/>
+        <Form onAddTask={handleAddTask} />
+        <TaskList
+          tasks={tasks}
+          onDeleteTask={handleDeleteTask}
+          onToggleTask={handleToggleTask}
+          onClearList={handleClearList}
+        />
+        <Stats tasks={tasks} />
+      </div>
+    </BrowserRouter>
   );
 }

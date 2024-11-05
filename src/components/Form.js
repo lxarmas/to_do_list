@@ -24,6 +24,7 @@ export default function Form({ onAddTask }) {
       <h3>How many things do you want to accomplish today?</h3>
       <input
         type="text"
+        className="task-input" // Update class name for styling
         placeholder="Add a new task to your list..."
         value={description}
         onChange={(e) => setDescription(e.target.value)}
