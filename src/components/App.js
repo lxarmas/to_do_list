@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Logo from "./Logo";
 import Clock from "./Clock";
+import Quote from "./Quote";
 import Form from "./Form";
 import TaskList from "./TaskList";
 import Stats from "./Stats";
+
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
@@ -42,7 +44,8 @@ export default function App() {
       <div className="app">
         <Logo />
         <div className="date">{date}</div>
-        <Clock/>
+        <Clock />
+        <Quote/>
         <Form onAddTask={handleAddTask} />
         <TaskList
           tasks={tasks}
