@@ -1,5 +1,5 @@
 {
-  "name": "my_task_app",
+  "name": "to_do_list",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://lxarmas.github.io/my_task_app/",
@@ -40,7 +40,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.2.0"
+    "gh-pages": "^6.3.0"
   },
   "proxy": "https://quotes.rest"
 }
