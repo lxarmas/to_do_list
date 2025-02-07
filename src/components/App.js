@@ -43,13 +43,6 @@ export default function App() {
 
       <div className="app">
         <Logo />
-        <div className="date">{date}</div>
-
-        {/* Container for Clock and Quote */}
-        <div className="clock-quote-container">
-          <Clock />
-          <Quote />
-        </div>
 
         <Form onAddTask={handleAddTask} />
         <TaskList
@@ -58,6 +51,13 @@ export default function App() {
           onToggleTask={handleToggleTask}
           onClearList={handleClearList}
         />
+        <div className="date">{date}</div>
+
+        {/* Container for Clock and Quote */}
+        <div className="clock-quote-container">
+          <Clock />
+          <Quote />
+        </div>
         <Stats tasks={tasks} />
       </div>
     </BrowserRouter>
