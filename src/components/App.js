@@ -13,51 +13,29 @@ export default function App() {
 
   useEffect( () => {
     const today = new Date();
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { year: "numeric", month: "long", day: "numeric" };
     setDate( today.toLocaleDateString( undefined, options ) );
   }, [] );
 
-  function handleAddTask( task ) {
-    setTasks( ( tasks ) => [...tasks, task] );
-  }
-
-  function handleDeleteTask( id ) {
-    setTasks( ( tasks ) => tasks.filter( ( task ) => task.id !== id ) );
-  }
-
-  function handleToggleTask( id ) {
-    setTasks( ( tasks ) =>
-      tasks.map( ( task ) =>
-        task.id === id ? { ...task, packed: !task.packed } : task
-      )
-    );
-  }
-
-  function handleClearList() {
-    const confirmed = window.confirm( "Are you sure you want to delete all tasks?" );
-    if ( confirmed ) setTasks( [] );
-  }
+  const handleAddTask = ( task ) => setTasks( ( prev ) => [...prev, task] );
+  const handleDeleteTask = ( id ) => setTasks( ( prev ) => prev.filter( ( task ) => task.id !== id ) );
+  const handleToggleTask = ( id ) =>
+    setTasks( ( prev ) => prev.map( ( task ) => ( task.id === id ? { ...task, packed: !task.packed } : task ) ) );
+  const handleClearList = () => {
+    if ( window.confirm( "Are you sure you want to delete all tasks?" ) ) setTasks( [] );
+  };
 
   return (
     <BrowserRouter basename="/to_do_list">
-
       <div className="app">
         <Logo />
+        <Form onAddTask={handleAddTask} />
+        <TaskList tasks={tasks} onDeleteTask={handleDeleteTask} onToggleTask={handleToggleTask} onClearList={handleClearList} />
         <div className="date">{date}</div>
-
-        {/* Container for Clock and Quote */}
         <div className="clock-quote-container">
           <Clock />
           <Quote />
         </div>
-
-        <Form onAddTask={handleAddTask} />
-        <TaskList
-          tasks={tasks}
-          onDeleteTask={handleDeleteTask}
-          onToggleTask={handleToggleTask}
-          onClearList={handleClearList}
-        />
         <Stats tasks={tasks} />
       </div>
     </BrowserRouter>
