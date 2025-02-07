@@ -8,38 +8,39 @@ import TaskList from "./TaskList";
 import Stats from "./Stats";
 
 export default function App() {
-  const [tasks, setTasks] = useState([]);
-  const [date, setDate] = useState("");
+  const [tasks, setTasks] = useState( [] );
+  const [date, setDate] = useState( "" );
 
-  useEffect(() => {
+  useEffect( () => {
     const today = new Date();
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    setDate(today.toLocaleDateString(undefined, options));
-  }, []);
+    setDate( today.toLocaleDateString( undefined, options ) );
+  }, [] );
 
-  function handleAddTask(task) {
-    setTasks((tasks) => [...tasks, task]);
+  function handleAddTask( task ) {
+    setTasks( ( tasks ) => [...tasks, task] );
   }
 
-  function handleDeleteTask(id) {
-    setTasks((tasks) => tasks.filter((task) => task.id !== id));
+  function handleDeleteTask( id ) {
+    setTasks( ( tasks ) => tasks.filter( ( task ) => task.id !== id ) );
   }
 
-  function handleToggleTask(id) {
-    setTasks((tasks) =>
-      tasks.map((task) =>
+  function handleToggleTask( id ) {
+    setTasks( ( tasks ) =>
+      tasks.map( ( task ) =>
         task.id === id ? { ...task, packed: !task.packed } : task
       )
     );
   }
 
   function handleClearList() {
-    const confirmed = window.confirm("Are you sure you want to delete all tasks?");
-    if (confirmed) setTasks([]);
+    const confirmed = window.confirm( "Are you sure you want to delete all tasks?" );
+    if ( confirmed ) setTasks( [] );
   }
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename="/to_do_list">
+
       <div className="app">
         <Logo />
         <div className="date">{date}</div>
