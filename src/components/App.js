@@ -40,9 +40,15 @@ export default function App() {
 
   return (
     <BrowserRouter basename="/to_do_list">
+      <div className="date">{date}</div>
+      <div className="clock-2">
+      </div>
 
+
+
+      <Logo />
+      <Clock />
       <div className="app">
-        <Logo />
 
         <Form onAddTask={handleAddTask} />
         <TaskList
@@ -51,11 +57,11 @@ export default function App() {
           onToggleTask={handleToggleTask}
           onClearList={handleClearList}
         />
-        <div className="date">{date}</div>
+
 
         {/* Container for Clock and Quote */}
         <div className="clock-quote-container">
-          <Clock />
+
           <Quote />
         </div>
         <Stats tasks={tasks} />
