@@ -24,6 +24,7 @@ body {
 
 .Logo {
   background-color: red;
+  
 }
 
 .app {
@@ -221,7 +222,7 @@ input {
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  margin: 20px auto;
+  margin: 80px auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
